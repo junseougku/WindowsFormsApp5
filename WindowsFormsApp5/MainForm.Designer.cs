@@ -31,6 +31,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.imageAddButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,11 +63,22 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // imageAddButton
+            // 
+            this.imageAddButton.Location = new System.Drawing.Point(1292, 107);
+            this.imageAddButton.Name = "imageAddButton";
+            this.imageAddButton.Size = new System.Drawing.Size(75, 23);
+            this.imageAddButton.TabIndex = 3;
+            this.imageAddButton.Text = "이미지추가";
+            this.imageAddButton.UseVisualStyleBackColor = true;
+            this.imageAddButton.Click += new System.EventHandler(this.imageAddButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1488, 812);
+            this.Controls.Add(this.imageAddButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.saveButton);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button imageAddButton;
     }
 }
 
