@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp5
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //
         }
     }
 }
