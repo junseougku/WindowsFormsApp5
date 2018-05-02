@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.loadButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Location = new System.Drawing.Point(1291, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Location = new System.Drawing.Point(1291, 163);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 0;
+            this.saveButton.Text = "저장";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // loadButton
             // 
-            this.button2.Location = new System.Drawing.Point(1291, 213);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.loadButton.Location = new System.Drawing.Point(1291, 213);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(75, 23);
+            this.loadButton.TabIndex = 1;
+            this.loadButton.Text = "불러오기";
+            this.loadButton.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1273, 788);
@@ -67,8 +68,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1488, 812);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loadButton);
+            this.Controls.Add(this.saveButton);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -78,8 +79,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
