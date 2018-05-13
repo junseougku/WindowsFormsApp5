@@ -13,6 +13,7 @@ namespace WindowsFormsApp5
     public partial class MainForm : Form
     {
         OpenFileDialog m_openImageDialog;
+        Graphics g;
         public MainForm()
         {
             InitializeComponent();
@@ -22,7 +23,15 @@ namespace WindowsFormsApp5
         }
         private void Init()
         {
+          
+
+            ImageInit();
+        }
+
+        private void ImageInit()
+        {
             pictureBox1.Image = imageList.Images[0];
+            pictureBox2.Image = imageList.Images[1];
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -47,5 +56,38 @@ namespace WindowsFormsApp5
         {
 
         }
+
+        private void MainPicture_Paint(object sender, PaintEventArgs e)
+        {
+            Pen p = new Pen(Color.White);
+            Point mapLineStart = new Point(0, 0);
+            Point mapLineEnd = new Point(0, 0); 
+            int x = 80, y = 0;
+            for (int i = 0; i < 16; i++)
+            {
+                 mapLineStart = new Point(x*i, y);
+                 mapLineEnd = new Point(x*i, y+800);
+                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd); 
+            }
+
+            mapLineStart = new Point(0, 0);
+            mapLineEnd = new Point(0, 0);
+            x = 0;
+            y = 80;
+            for(int i = 0; i < 10; i++)
+            {
+                mapLineStart = new Point(x, y*i);
+                mapLineEnd = new Point(x + 1280, y * i);
+                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd); 
+            }
+            p.Dispose();
+        }
+
+        private void MainPicture_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+          
+        }
+
+   
     }
 }

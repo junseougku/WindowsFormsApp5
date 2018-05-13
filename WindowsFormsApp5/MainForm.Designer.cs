@@ -44,7 +44,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(1291, 163);
+            this.saveButton.Location = new System.Drawing.Point(1324, 162);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(1291, 213);
+            this.loadButton.Location = new System.Drawing.Point(1324, 216);
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(75, 23);
             this.loadButton.TabIndex = 1;
@@ -65,14 +65,16 @@
             this.MainPicture.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.MainPicture.Location = new System.Drawing.Point(12, 12);
             this.MainPicture.Name = "MainPicture";
-            this.MainPicture.Size = new System.Drawing.Size(1273, 788);
+            this.MainPicture.Size = new System.Drawing.Size(1280, 800);
             this.MainPicture.TabIndex = 2;
             this.MainPicture.TabStop = false;
+            this.MainPicture.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.MainPicture_LoadCompleted);
             this.MainPicture.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.MainPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPicture_Paint);
             // 
             // imageAddButton
             // 
-            this.imageAddButton.Location = new System.Drawing.Point(1292, 107);
+            this.imageAddButton.Location = new System.Drawing.Point(1324, 107);
             this.imageAddButton.Name = "imageAddButton";
             this.imageAddButton.Size = new System.Drawing.Size(75, 23);
             this.imageAddButton.TabIndex = 3;
@@ -83,7 +85,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.pictureBox1.Location = new System.Drawing.Point(1292, 266);
+            this.pictureBox1.Location = new System.Drawing.Point(1319, 266);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 80);
             this.pictureBox1.TabIndex = 4;
@@ -93,7 +95,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.pictureBox2.Location = new System.Drawing.Point(1292, 371);
+            this.pictureBox2.Location = new System.Drawing.Point(1319, 375);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 80);
             this.pictureBox2.TabIndex = 5;
@@ -104,12 +106,13 @@
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "ground_1.bmp");
+            this.imageList.Images.SetKeyName(1, "ground_2.bmp");
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 812);
+            this.ClientSize = new System.Drawing.Size(1505, 836);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.imageAddButton);
