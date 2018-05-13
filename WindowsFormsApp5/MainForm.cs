@@ -14,6 +14,9 @@ namespace WindowsFormsApp5
     {
         OpenFileDialog m_openImageDialog;
         Graphics g;
+        PictureBox m_cursorPicture;
+
+        bool m_click;
         public MainForm()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace WindowsFormsApp5
         }
         private void Init()
         {
-          
+            m_click = false;
 
             ImageInit();
         }
@@ -88,6 +91,25 @@ namespace WindowsFormsApp5
           
         }
 
-   
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            m_cursorPicture = new PictureBox();
+            m_cursorPicture.Size = new Size(80, 80);
+
+            m_cursorPicture.Image = imageList.Images[0];
+
+            m_click = true;
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void MainPicture_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(m_click == true)
+             MainPicture.Image = m_cursorPicture.Image;
+        }
     }
 }
