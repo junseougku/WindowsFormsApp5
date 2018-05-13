@@ -17,6 +17,12 @@ namespace WindowsFormsApp5
         {
             InitializeComponent();
             m_openImageDialog = new OpenFileDialog();
+            m_openImageDialog.InitialDirectory = @"C:\";
+            Init();
+        }
+        private void Init()
+        {
+            pictureBox1.Image = imageList.Images[0];
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -26,11 +32,19 @@ namespace WindowsFormsApp5
 
         private void imageAddButton_Click(object sender, EventArgs e)
         {
-            m_openImageDialog.InitialDirectory = @"C:\";
-            m_openImageDialog.Filter = "텍스트 파일(*.txt)|*.txt|모든 파일(*.*)|*.*";
-            m_openImageDialog.FilterIndex = 1;
-            m_openImageDialog.RestoreDirectory = true;
-            m_openImageDialog.ShowDialog();
+            //m_openImageDialog.Filter = "텍스트 파일(*.txt)|*.txt|모든 파일(*.*)|*.*";
+           // m_openImageDialog.FilterIndex = 1;
+           // m_openImageDialog.ShowDialog();
+
+
+            //Image flag = new Bitmap("ground_1.png");
+            Graphics flagGraphics =CreateGraphics();
+
+           // flag = m_openImageDialog.
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
