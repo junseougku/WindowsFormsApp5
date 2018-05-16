@@ -75,6 +75,8 @@
             this.MainPicture.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.MainPicture_LoadCompleted);
             this.MainPicture.Click += new System.EventHandler(this.MainPicture_Click);
             this.MainPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPicture_Paint);
+            this.MainPicture.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainPicture_MouseClick);
+            this.MainPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPicture_MouseDown);
             this.MainPicture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPicture_MouseMove);
             // 
             // imageAddButton
@@ -89,7 +91,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.ground_1;
             this.pictureBox1.Location = new System.Drawing.Point(1319, 266);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 80);
@@ -100,7 +103,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox2.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.ground_2;
             this.pictureBox2.Location = new System.Drawing.Point(1319, 375);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 80);

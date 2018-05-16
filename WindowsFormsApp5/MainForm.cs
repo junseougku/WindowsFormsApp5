@@ -18,7 +18,7 @@ namespace WindowsFormsApp5
 
 
         bool m_click;
-
+        bool m_clickDown;
         int m_mouseX;
         int m_mouseY;
         public MainForm()
@@ -31,6 +31,7 @@ namespace WindowsFormsApp5
         private void Init()
         {
             m_click = false;
+            m_clickDown = false;
             m_mouseX = 0;
             m_mouseY = 0;
             ImageInit();
@@ -86,7 +87,17 @@ namespace WindowsFormsApp5
                 e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
             }
             p.Dispose();
-           e.Graphics.DrawImage(imageList.Images[0], m_mouseX-40,m_mouseY-40);
+            if (m_click == true || m_clickDown == true)
+            {
+                TilePaint(e);
+                m_clickDown = false;
+            }
+          
+        }
+
+        private void TilePaint(PaintEventArgs e )
+        {
+            e.Graphics.DrawImage(imageList.Images[0], m_mouseX - 40, m_mouseY - 40);
         }
 
         private void MainPicture_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -97,7 +108,6 @@ namespace WindowsFormsApp5
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             m_cursorPicture = CreateGraphics();
-          //  m_cursorPicture.DrawImage(imageList.Images[0],Point.Empty);
 
             m_click = true;
         }
@@ -109,18 +119,44 @@ namespace WindowsFormsApp5
 
         private void MainPicture_MouseMove(object sender, MouseEventArgs e)
         {
-            if (m_click == true)
+            if (m_click == true )
             {
                 m_mouseX = e.X;
                 m_mouseY = e.Y;
                 MainPicture.Invalidate();
             }
-        
+            
         }
 
         private void MainPicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainPicture_MouseClick(object sender, MouseEventArgs e)
+        {
+            int x, y;
+        //   m_g = CreateGraphics();
+         //   m_g.DrawImage(imageList.Images[0], m_mouseX - 40, m_mouseY - 40);
+            
+        }
+
+        private void MainPicture_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(m_click == true)
+            {
+                m_click = false;
+                m_clickDown = true;
+                m_mouseX = e.X / 80;
+                m_mouseY = e.Y / 80;
+                m_mouseX++;
+                m_mouseY++;
+                MessageBox.Show(m_mouseX.ToString(), m_mouseY.ToString());
+                m_mouseX = 80 * m_mouseX - 40;
+                m_mouseY = 80 * m_mouseY - 40;
+                
+                MainPicture.Invalidate();
+            }
         }
     }
 }
