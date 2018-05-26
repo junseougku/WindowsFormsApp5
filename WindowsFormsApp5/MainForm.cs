@@ -7,6 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.IO.st
+using static System.IO.FileStream;
+
+public struct mapTile
+{
+    public int x, y;
+    public bool no;
+    public int number;
+   
+}
 
 namespace WindowsFormsApp5
 {
@@ -21,6 +31,8 @@ namespace WindowsFormsApp5
         bool m_clickDown;
         int m_mouseX;
         int m_mouseY;
+
+        mapTile[,] m_mapTile = new mapTile [16,10];
         public MainForm()
         {
             InitializeComponent();
@@ -28,6 +40,7 @@ namespace WindowsFormsApp5
             m_openImageDialog.InitialDirectory = @"C:\";
             Init();
         }
+
         private void Init()
         {
             m_click = false;
@@ -35,6 +48,7 @@ namespace WindowsFormsApp5
             m_mouseX = 0;
             m_mouseY = 0;
             ImageInit();
+            
         }
 
         private void ImageInit()
@@ -42,8 +56,6 @@ namespace WindowsFormsApp5
             pictureBox1.Image = imageList.Images[0];
             pictureBox2.Image = imageList.Images[1];
         }
-
-
 
         private void imageAddButton_Click(object sender, EventArgs e)
         {
@@ -98,6 +110,15 @@ namespace WindowsFormsApp5
         private void TilePaint(PaintEventArgs e )
         {
             e.Graphics.DrawImage(imageList.Images[0], m_mouseX - 40, m_mouseY - 40);
+            for (int i = 0; i < 16; i++)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    if (m_mapTile[i,j].no == true)
+                        e.Graphics.DrawImage(imageList.Images[m_mapTile[i, j].number], i*80 , j*80 );
+                }
+               
+            }
         }
 
         private void MainPicture_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -105,11 +126,23 @@ namespace WindowsFormsApp5
 
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void CommonButton(int _num)
         {
             m_cursorPicture = CreateGraphics();
 
             m_click = true;
+
+            
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            CommonButton(1);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            CommonButton(2);
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
@@ -149,14 +182,25 @@ namespace WindowsFormsApp5
                 m_clickDown = true;
                 m_mouseX = e.X / 80;
                 m_mouseY = e.Y / 80;
+
+                m_mapTile[m_mouseX, m_mouseY].no = true;
+                m_mapTile[m_mouseX, m_mouseY].number = 1;
                 m_mouseX++;
                 m_mouseY++;
-                MessageBox.Show(m_mouseX.ToString(), m_mouseY.ToString());
+       
                 m_mouseX = 80 * m_mouseX - 40;
                 m_mouseY = 80 * m_mouseY - 40;
                 
                 MainPicture.Invalidate();
+
             }
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
