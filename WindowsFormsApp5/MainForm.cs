@@ -23,7 +23,7 @@ namespace WindowsFormsApp5
     public partial class MainForm : Form
     {
         OpenFileDialog m_openImageDialog;
-        Graphics m_g;
+        int m_number;
         Graphics m_cursorPicture;
 
 
@@ -132,17 +132,17 @@ namespace WindowsFormsApp5
 
             m_click = true;
 
-            
+            m_number = _num;
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            CommonButton(1);
+            CommonButton(0);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            CommonButton(2);
+            CommonButton(1);
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
@@ -184,7 +184,7 @@ namespace WindowsFormsApp5
                 m_mouseY = e.Y / 80;
 
                 m_mapTile[m_mouseX, m_mouseY].no = true;
-                m_mapTile[m_mouseX, m_mouseY].number = 1;
+                m_mapTile[m_mouseX, m_mouseY].number = m_number;
                 m_mouseX++;
                 m_mouseY++;
        
@@ -192,7 +192,7 @@ namespace WindowsFormsApp5
                 m_mouseY = 80 * m_mouseY - 40;
                 
                 MainPicture.Invalidate();
-
+                m_number = 0;
             }
         }
 
@@ -201,6 +201,9 @@ namespace WindowsFormsApp5
 
         }
 
-        
+        private void TestButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
