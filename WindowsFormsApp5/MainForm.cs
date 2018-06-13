@@ -55,6 +55,7 @@ namespace WindowsFormsApp5
         {
             pictureBox1.Image = imageList.Images[0];
             pictureBox2.Image = imageList.Images[1];
+            pictureBox3.Image = imageList.Images[2];
         }
 
         private void imageAddButton_Click(object sender, EventArgs e)
@@ -168,10 +169,7 @@ namespace WindowsFormsApp5
 
         private void MainPicture_MouseClick(object sender, MouseEventArgs e)
         {
-            int x, y;
-        //   m_g = CreateGraphics();
-         //   m_g.DrawImage(imageList.Images[0], m_mouseX - 40, m_mouseY - 40);
-            
+          
         }
 
         private void MainPicture_MouseDown(object sender, MouseEventArgs e)
@@ -204,6 +202,11 @@ namespace WindowsFormsApp5
         private void TestButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            CommonButton(2);
         }
     }
 }
