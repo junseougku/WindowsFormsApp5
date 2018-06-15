@@ -83,6 +83,7 @@
             this.imageList.Images.SetKeyName(0, "ground_1.bmp");
             this.imageList.Images.SetKeyName(1, "ground_2.bmp");
             this.imageList.Images.SetKeyName(2, "tree_01.bmp");
+            this.imageList.Images.SetKeyName(3, "gress_01.bmp");
             // 
             // TestButton
             // 
@@ -97,11 +98,13 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pictureBox4.BackgroundImage = global::WindowsFormsApp5.Properties.Resources.gress_01;
             this.pictureBox4.Location = new System.Drawing.Point(1319, 592);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(80, 80);
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 

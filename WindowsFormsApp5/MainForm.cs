@@ -56,6 +56,7 @@ namespace WindowsFormsApp5
             pictureBox1.Image = imageList.Images[0];
             pictureBox2.Image = imageList.Images[1];
             pictureBox3.Image = imageList.Images[2];
+            pictureBox4.Image = imageList.Images[3];
         }
 
         private void imageAddButton_Click(object sender, EventArgs e)
@@ -110,7 +111,7 @@ namespace WindowsFormsApp5
 
         private void TilePaint(PaintEventArgs e )
         {
-            e.Graphics.DrawImage(imageList.Images[0], m_mouseX - 40, m_mouseY - 40);
+            e.Graphics.DrawImage(imageList.Images[m_number], m_mouseX - 40, m_mouseY - 40);
             for (int i = 0; i < 16; i++)
             {
                 for(int j = 0; j < 10; j++)
@@ -207,6 +208,11 @@ namespace WindowsFormsApp5
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             CommonButton(2);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            CommonButton(3);
         }
     }
 }
