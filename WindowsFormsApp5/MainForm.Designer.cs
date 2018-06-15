@@ -80,10 +80,11 @@
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "ground_1.bmp");
-            this.imageList.Images.SetKeyName(1, "ground_2.bmp");
-            this.imageList.Images.SetKeyName(2, "tree_01.bmp");
-            this.imageList.Images.SetKeyName(3, "gress_01.bmp");
+            this.imageList.Images.SetKeyName(0, "idle_1.bmp");
+            this.imageList.Images.SetKeyName(1, "ground_1.bmp");
+            this.imageList.Images.SetKeyName(2, "ground_2.bmp");
+            this.imageList.Images.SetKeyName(3, "tree_01.bmp");
+            this.imageList.Images.SetKeyName(4, "gress_01.bmp");
             // 
             // TestButton
             // 
@@ -192,7 +193,7 @@
         private System.Windows.Forms.Button imageAddButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ImageList imageList;
+        public System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button TestButton;

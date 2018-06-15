@@ -33,6 +33,8 @@ namespace WindowsFormsApp5
         int m_mouseY;
 
         mapTile[,] m_mapTile = new mapTile [16,10];
+
+        Player player;
         public MainForm()
         {
             InitializeComponent();
@@ -48,7 +50,11 @@ namespace WindowsFormsApp5
             m_mouseX = 0;
             m_mouseY = 0;
             ImageInit();
-            
+            player = new Player();
+            player.Init(imageList.Images[4]);
+
+
+
         }
 
         private void ImageInit()
@@ -213,6 +219,11 @@ namespace WindowsFormsApp5
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             CommonButton(3);
+        }
+
+        private void PlayerTest()
+        {
+
         }
     }
 }
