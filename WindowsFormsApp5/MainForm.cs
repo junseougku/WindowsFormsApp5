@@ -85,28 +85,7 @@ namespace WindowsFormsApp5
         bool testButton = false;
         private void MainPicture_Paint(object sender, PaintEventArgs e)
         {
-            Pen p = new Pen(Color.White);
-            Point mapLineStart = new Point(0, 0);
-            Point mapLineEnd = new Point(0, 0);
-            int x = 80, y = 0;
-            for (int i = 0; i < 16; i++)
-            {
-                mapLineStart = new Point(x * i, y);
-                mapLineEnd = new Point(x * i, y + 800);
-                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
-            }
-
-            mapLineStart = new Point(0, 0);
-            mapLineEnd = new Point(0, 0);
-            x = 0;
-            y = 80;
-            for (int i = 0; i < 10; i++)
-            {
-                mapLineStart = new Point(x, y * i);
-                mapLineEnd = new Point(x + 1280, y * i);
-                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
-            }
-            p.Dispose();
+            LineEnable(e);
             if (m_click == true || m_clickDown == true)
             {
                 TilePaint(e);
@@ -122,7 +101,7 @@ namespace WindowsFormsApp5
                     {
                         if (m_mapTile[i, j].no == true)
                         {
-                            e.Graphics.DrawImage(imageList.Images[4],i*80, j*80);
+                            e.Graphics.DrawImage(imageList.Images[5],i*80, j*80);
                             return;
                         }
                     }
@@ -247,6 +226,42 @@ namespace WindowsFormsApp5
                 testButton = true;
             else testButton = false;
             MainPicture.Invalidate();
+        }
+        bool islineEnable = true;
+        private void lineEnable_Click(object sender, EventArgs e)
+        {
+            if (islineEnable == true)
+                islineEnable = false;
+            else islineEnable = true;
+            MainPicture.Invalidate();
+
+        }
+
+        private void LineEnable(PaintEventArgs e)
+        {
+            if (islineEnable == false) return;
+            Pen p = new Pen(Color.White);
+            Point mapLineStart = new Point(0, 0);
+            Point mapLineEnd = new Point(0, 0);
+            int x = 80, y = 0;
+            for (int i = 0; i < 16; i++)
+            {
+                mapLineStart = new Point(x * i, y);
+                mapLineEnd = new Point(x * i, y + 800);
+                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
+            }
+
+            mapLineStart = new Point(0, 0);
+            mapLineEnd = new Point(0, 0);
+            x = 0;
+            y = 80;
+            for (int i = 0; i < 10; i++)
+            {
+                mapLineStart = new Point(x, y * i);
+                mapLineEnd = new Point(x + 1280, y * i);
+                e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
+            }
+            p.Dispose();
         }
     }
 }

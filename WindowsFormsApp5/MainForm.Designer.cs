@@ -40,6 +40,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainPicture = new System.Windows.Forms.PictureBox();
+            this.lineEnable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -85,6 +86,7 @@
             this.imageList.Images.SetKeyName(2, "tree_01.bmp");
             this.imageList.Images.SetKeyName(3, "gress_01.bmp");
             this.imageList.Images.SetKeyName(4, "idle_1.bmp");
+            this.imageList.Images.SetKeyName(5, "idle_01.png");
             // 
             // TestButton
             // 
@@ -159,11 +161,22 @@
             this.MainPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPicture_MouseDown);
             this.MainPicture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPicture_MouseMove);
             // 
+            // lineEnable
+            // 
+            this.lineEnable.Location = new System.Drawing.Point(1324, 703);
+            this.lineEnable.Name = "lineEnable";
+            this.lineEnable.Size = new System.Drawing.Size(75, 23);
+            this.lineEnable.TabIndex = 9;
+            this.lineEnable.Text = "선삭제";
+            this.lineEnable.UseVisualStyleBackColor = true;
+            this.lineEnable.Click += new System.EventHandler(this.lineEnable_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 836);
+            this.Controls.Add(this.lineEnable);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -197,6 +210,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button TestButton;
+        private System.Windows.Forms.Button lineEnable;
     }
 }
 
