@@ -17,9 +17,9 @@ namespace WindowsFormsApp5
             m_image = _image;
         }
 
-        public void Draw()
+        public void Draw(PaintEventArgs e)
         {
-            return m_image;
+           
         }
     }
 }

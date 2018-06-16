@@ -82,7 +82,7 @@ namespace WindowsFormsApp5
         {
 
         }
-
+        bool testButton = false;
         private void MainPicture_Paint(object sender, PaintEventArgs e)
         {
             Pen p = new Pen(Color.White);
@@ -112,7 +112,22 @@ namespace WindowsFormsApp5
                 TilePaint(e);
                 m_clickDown = false;
             }
-          
+            player.Draw(e);
+
+            if (testButton == true)
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (m_mapTile[i, j].no == true)
+                        {
+                            e.Graphics.DrawImage(imageList.Images[4],i*80, j*80);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         private void TilePaint(PaintEventArgs e )
@@ -206,10 +221,7 @@ namespace WindowsFormsApp5
 
         }
 
-        private void TestButton_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -224,6 +236,17 @@ namespace WindowsFormsApp5
         private void PlayerTest()
         {
 
+        }
+
+
+
+
+        private void TestButton_Click(object sender, EventArgs e)
+        {
+            if (testButton == false)
+                testButton = true;
+            else testButton = false;
+            MainPicture.Invalidate();
         }
     }
 }
