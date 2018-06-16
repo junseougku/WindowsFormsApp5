@@ -177,10 +177,11 @@ namespace WindowsFormsApp5
         {
             if(m_click == true)
             {
-                m_click = false;
-                m_clickDown = true;
                 m_mouseX = e.X / 80;
                 m_mouseY = e.Y / 80;
+                // m_click = false;
+                if (m_mapTile[m_mouseX, m_mouseY].no == true) return;
+                m_clickDown = true;
 
                 m_mapTile[m_mouseX, m_mouseY].no = true;
                 m_mapTile[m_mouseX, m_mouseY].number = m_number;
@@ -191,7 +192,7 @@ namespace WindowsFormsApp5
                 m_mouseY = 80 * m_mouseY - 40;
                 
                 MainPicture.Invalidate();
-                m_number = 0;
+                //m_number = 0;
             }
         }
 
@@ -227,19 +228,21 @@ namespace WindowsFormsApp5
             else testButton = false;
             MainPicture.Invalidate();
         }
-        bool islineEnable = true;
+
+        bool m_islineEnable = true;
+
         private void lineEnable_Click(object sender, EventArgs e)
         {
-            if (islineEnable == true)
-                islineEnable = false;
-            else islineEnable = true;
+            if (m_islineEnable == true)
+                m_islineEnable = false;
+            else m_islineEnable = true;
             MainPicture.Invalidate();
 
         }
 
         private void LineEnable(PaintEventArgs e)
         {
-            if (islineEnable == false) return;
+            if (m_islineEnable == false) return;
             Pen p = new Pen(Color.White);
             Point mapLineStart = new Point(0, 0);
             Point mapLineEnd = new Point(0, 0);
