@@ -40,6 +40,8 @@ namespace WindowsFormsApp5
             InitializeComponent();
             m_openImageDialog = new OpenFileDialog();
             m_openImageDialog.InitialDirectory = @"C:\";
+
+            MainPicture.Focus();
             Init();
         }
 
@@ -52,8 +54,8 @@ namespace WindowsFormsApp5
             ImageInit();
             player = new Player();
 
-            player.Init(imageList.Images[4]);
-           
+            player.Init(imageList.Images[5]);
+          // saveButton.fo
         }
 
         private void ImageInit()
@@ -64,22 +66,10 @@ namespace WindowsFormsApp5
             pictureBox4.Image = imageList.Images[3];
         }
 
-        private void imageAddButton_Click(object sender, EventArgs e)
-        {
-            //m_openImageDialog.Filter = "텍스트 파일(*.txt)|*.txt|모든 파일(*.*)|*.*";
-            // m_openImageDialog.FilterIndex = 1;
-            // m_openImageDialog.ShowDialog();
-
-
-            //Image flag = new Bitmap("ground_1.png");
-            Graphics flagGraphics = CreateGraphics();
-
-            // flag = m_openImageDialog.
-        }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
         bool testButton = false;
         private void MainPicture_Paint(object sender, PaintEventArgs e)
@@ -87,21 +77,23 @@ namespace WindowsFormsApp5
             LineEnable(e);
             if (m_click == true || m_clickDown == true)
             {
-                TilePaint(e);
+               // TilePaint(e);
                 m_clickDown = false;
             }
-            //TilePaint(e);
+            TilePaint(e);
        
 
             if (testButton == true)
             {
+ 
                 for (int i = 0; i < 16; i++)
                 {
                     for (int j = 0; j < 10; j++)
                     {
                         if (m_mapTile[i, j].no == true)
                         {
-                            player.setPosition(i*80,j*80);
+                            
+                            player.setPosition(player.x*80,player.y*80);
                             player.Draw(e);
                             return;
                         }
@@ -117,6 +109,7 @@ namespace WindowsFormsApp5
             {
                 for(int j = 0; j < 10; j++)
                 {
+                   
                     if (m_mapTile[i, j].no == true)
                         e.Graphics.DrawImage(imageList.Images[m_mapTile[i,j].number], i*80, j*80);
                 }
@@ -267,6 +260,7 @@ namespace WindowsFormsApp5
                 testButton = true;
             else testButton = false;
             MainPicture.Invalidate();
+            //MainPicture.Focus;
         }
 
         bool m_islineEnable = true;
@@ -382,6 +376,26 @@ namespace WindowsFormsApp5
             millisecondsElapsed += msec;
             //var msecPerFrame = 1000 / framesPerSecond;
             //index = (int)(millisecondsElapsed / msecPerFrame);
+        }
+
+        private void upButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void downButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leftButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rightButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

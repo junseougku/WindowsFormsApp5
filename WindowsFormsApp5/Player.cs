@@ -34,8 +34,9 @@ namespace WindowsFormsApp5
         {
             if(_move == MOVE.DOWN)
             {
-                y++;
+                y = y +1;
             }
+            
         }
     }
 }

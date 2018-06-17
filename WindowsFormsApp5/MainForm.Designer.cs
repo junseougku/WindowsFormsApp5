@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.saveButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
-            this.imageAddButton = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.TestButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -44,6 +43,10 @@
             this.stopImage = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.upButton = new System.Windows.Forms.Button();
+            this.leftButton = new System.Windows.Forms.Button();
+            this.downButton = new System.Windows.Forms.Button();
+            this.rightButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -57,6 +60,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 22;
+            this.saveButton.TabStop = false;
             this.saveButton.Text = "저장";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -67,19 +71,10 @@
             this.loadButton.Name = "loadButton";
             this.loadButton.Size = new System.Drawing.Size(75, 23);
             this.loadButton.TabIndex = 1;
+            this.loadButton.TabStop = false;
             this.loadButton.Text = "불러오기";
             this.loadButton.UseVisualStyleBackColor = true;
             this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
-            // 
-            // imageAddButton
-            // 
-            this.imageAddButton.Location = new System.Drawing.Point(1324, 107);
-            this.imageAddButton.Name = "imageAddButton";
-            this.imageAddButton.Size = new System.Drawing.Size(75, 23);
-            this.imageAddButton.TabIndex = 3;
-            this.imageAddButton.Text = "이미지추가";
-            this.imageAddButton.UseVisualStyleBackColor = true;
-            this.imageAddButton.Click += new System.EventHandler(this.imageAddButton_Click);
             // 
             // imageList
             // 
@@ -96,10 +91,11 @@
             // 
             // TestButton
             // 
-            this.TestButton.Location = new System.Drawing.Point(1324, 61);
+            this.TestButton.Location = new System.Drawing.Point(1324, 116);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(75, 23);
             this.TestButton.TabIndex = 8;
+            this.TestButton.TabStop = false;
             this.TestButton.Text = "TEST";
             this.TestButton.UseVisualStyleBackColor = true;
             this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
@@ -173,6 +169,7 @@
             this.lineEnable.Name = "lineEnable";
             this.lineEnable.Size = new System.Drawing.Size(75, 23);
             this.lineEnable.TabIndex = 9;
+            this.lineEnable.TabStop = false;
             this.lineEnable.Text = "선삭제";
             this.lineEnable.UseVisualStyleBackColor = true;
             this.lineEnable.Click += new System.EventHandler(this.lineEnable_Click);
@@ -183,6 +180,7 @@
             this.stopImage.Name = "stopImage";
             this.stopImage.Size = new System.Drawing.Size(75, 23);
             this.stopImage.TabIndex = 10;
+            this.stopImage.TabStop = false;
             this.stopImage.Text = "그만하기";
             this.stopImage.UseVisualStyleBackColor = true;
             this.stopImage.Click += new System.EventHandler(this.stopImage_Click);
@@ -193,6 +191,7 @@
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
             this.deleteButton.TabIndex = 11;
+            this.deleteButton.TabStop = false;
             this.deleteButton.Text = "타일삭제";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -201,11 +200,55 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // upButton
+            // 
+            this.upButton.Location = new System.Drawing.Point(1387, 12);
+            this.upButton.Name = "upButton";
+            this.upButton.Size = new System.Drawing.Size(44, 23);
+            this.upButton.TabIndex = 23;
+            this.upButton.Text = "up";
+            this.upButton.UseVisualStyleBackColor = true;
+            this.upButton.Click += new System.EventHandler(this.upButton_Click);
+            // 
+            // leftButton
+            // 
+            this.leftButton.Location = new System.Drawing.Point(1324, 60);
+            this.leftButton.Name = "leftButton";
+            this.leftButton.Size = new System.Drawing.Size(39, 23);
+            this.leftButton.TabIndex = 24;
+            this.leftButton.Text = "left";
+            this.leftButton.UseVisualStyleBackColor = true;
+            this.leftButton.Click += new System.EventHandler(this.leftButton_Click);
+            // 
+            // downButton
+            // 
+            this.downButton.Location = new System.Drawing.Point(1387, 60);
+            this.downButton.Name = "downButton";
+            this.downButton.Size = new System.Drawing.Size(44, 23);
+            this.downButton.TabIndex = 25;
+            this.downButton.Text = "down";
+            this.downButton.UseVisualStyleBackColor = true;
+            this.downButton.Click += new System.EventHandler(this.downButton_Click);
+            // 
+            // rightButton
+            // 
+            this.rightButton.Location = new System.Drawing.Point(1453, 60);
+            this.rightButton.Name = "rightButton";
+            this.rightButton.Size = new System.Drawing.Size(40, 23);
+            this.rightButton.TabIndex = 26;
+            this.rightButton.Text = "right";
+            this.rightButton.UseVisualStyleBackColor = true;
+            this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 836);
+            this.Controls.Add(this.rightButton);
+            this.Controls.Add(this.downButton);
+            this.Controls.Add(this.leftButton);
+            this.Controls.Add(this.upButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.stopImage);
             this.Controls.Add(this.lineEnable);
@@ -214,7 +257,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.imageAddButton);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.MainPicture);
@@ -238,7 +280,6 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.PictureBox MainPicture;
-        private System.Windows.Forms.Button imageAddButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.ImageList imageList;
@@ -249,6 +290,10 @@
         private System.Windows.Forms.Button stopImage;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button upButton;
+        private System.Windows.Forms.Button leftButton;
+        private System.Windows.Forms.Button downButton;
+        private System.Windows.Forms.Button rightButton;
     }
 }
 
