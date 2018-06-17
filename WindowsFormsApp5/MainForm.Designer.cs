@@ -41,6 +41,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainPicture = new System.Windows.Forms.PictureBox();
             this.lineEnable = new System.Windows.Forms.Button();
+            this.stopImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -171,11 +172,22 @@
             this.lineEnable.UseVisualStyleBackColor = true;
             this.lineEnable.Click += new System.EventHandler(this.lineEnable_Click);
             // 
+            // stopImage
+            // 
+            this.stopImage.Location = new System.Drawing.Point(1324, 733);
+            this.stopImage.Name = "stopImage";
+            this.stopImage.Size = new System.Drawing.Size(75, 23);
+            this.stopImage.TabIndex = 10;
+            this.stopImage.Text = "그만하기";
+            this.stopImage.UseVisualStyleBackColor = true;
+            this.stopImage.Click += new System.EventHandler(this.stopImage_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 836);
+            this.Controls.Add(this.stopImage);
             this.Controls.Add(this.lineEnable);
             this.Controls.Add(this.TestButton);
             this.Controls.Add(this.pictureBox4);
@@ -211,6 +223,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button lineEnable;
+        private System.Windows.Forms.Button stopImage;
     }
 }
 

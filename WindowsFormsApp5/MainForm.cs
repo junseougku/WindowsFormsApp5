@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.IO.st
+using System.IO;
 using static System.IO.FileStream;
 
 public struct mapTile
@@ -91,6 +91,7 @@ namespace WindowsFormsApp5
                 TilePaint(e);
                 m_clickDown = false;
             }
+
             player.Draw(e);
 
             if (testButton == true)
@@ -112,6 +113,7 @@ namespace WindowsFormsApp5
         private void TilePaint(PaintEventArgs e )
         {
             e.Graphics.DrawImage(imageList.Images[m_number], m_mouseX - 40, m_mouseY - 40);
+            
             for (int i = 0; i < 16; i++)
             {
                 for(int j = 0; j < 10; j++)
@@ -160,6 +162,7 @@ namespace WindowsFormsApp5
                 m_mouseY = e.Y;
                 MainPicture.Invalidate();
             }
+           
             
         }
 
@@ -183,6 +186,8 @@ namespace WindowsFormsApp5
                 if (m_mapTile[m_mouseX, m_mouseY].no == true) return;
                 m_clickDown = true;
 
+                m_mapTile[m_mouseX, m_mouseY].x = m_mouseX;
+                m_mapTile[m_mouseX, m_mouseY].y = m_mouseY;
                 m_mapTile[m_mouseX, m_mouseY].no = true;
                 m_mapTile[m_mouseX, m_mouseY].number = m_number;
                 m_mouseX++;
@@ -198,7 +203,24 @@ namespace WindowsFormsApp5
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                foreach(mapTile b in m_mapTile )
+                {
+                    MessageBox.Show(b.x.ToString());
+                    return;
+                }
+                StreamWriter sw = new StreamWriter("textt.txt");
+                sw.WriteLine("" );
 
+
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print(ex.ToString());
+            }
+        
         }
 
        
@@ -265,6 +287,11 @@ namespace WindowsFormsApp5
                 e.Graphics.DrawLine(p, mapLineStart, mapLineEnd);
             }
             p.Dispose();
+        }
+
+        private void stopImage_Click(object sender, EventArgs e)
+        {
+            m_click = false;
         }
     }
 }
