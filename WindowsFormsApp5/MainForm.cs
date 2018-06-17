@@ -205,20 +205,20 @@ namespace WindowsFormsApp5
         {
             try
             {
-                foreach(mapTile b in m_mapTile )
-                {
-                    MessageBox.Show(b.x.ToString());
-                    return;
-                }
                 StreamWriter sw = new StreamWriter("textt.txt");
-                sw.WriteLine("" );
-
-
+                foreach (mapTile b in m_mapTile )
+                {
+                    string str = "";
+                    str += b.x + ",";
+                    str += b.y + ",";
+                    str += b.number + ",";
+                    sw.WriteLine(str);
+                }
                 sw.Close();
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print(ex.ToString());
+                MessageBox.Show("저장할 수 없습니다");
             }
         
         }
@@ -292,6 +292,28 @@ namespace WindowsFormsApp5
         private void stopImage_Click(object sender, EventArgs e)
         {
             m_click = false;
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StreamReader sw = new StreamReader("textt.txt");
+                foreach (mapTile b in m_mapTile)
+                {
+                    string str = "";
+                    str += b.x + ",";
+                    str += b.y + ",";
+                    str += b.number + ",";
+                    sw.WriteLine(str);
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("읽어올 수 없습니다");
+            }
+
         }
     }
 }

@@ -67,6 +67,7 @@
             this.loadButton.TabIndex = 1;
             this.loadButton.Text = "불러오기";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // imageAddButton
             // 
