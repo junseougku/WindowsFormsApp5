@@ -43,6 +43,7 @@
             this.lineEnable = new System.Windows.Forms.Button();
             this.stopImage = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,7 +56,7 @@
             this.saveButton.Location = new System.Drawing.Point(1324, 162);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 0;
+            this.saveButton.TabIndex = 22;
             this.saveButton.Text = "저장";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -90,6 +91,8 @@
             this.imageList.Images.SetKeyName(3, "gress_01.bmp");
             this.imageList.Images.SetKeyName(4, "idle_1.bmp");
             this.imageList.Images.SetKeyName(5, "idle_01.png");
+            this.imageList.Images.SetKeyName(6, "walk_down_01.png");
+            this.imageList.Images.SetKeyName(7, "walk_down_02.png");
             // 
             // TestButton
             // 
@@ -156,7 +159,7 @@
             this.MainPicture.Size = new System.Drawing.Size(1280, 800);
             this.MainPicture.TabIndex = 2;
             this.MainPicture.TabStop = false;
-            this.MainPicture.Tag = "2";
+            this.MainPicture.Tag = "0";
             this.MainPicture.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.MainPicture_LoadCompleted);
             this.MainPicture.Click += new System.EventHandler(this.MainPicture_Click);
             this.MainPicture.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPicture_Paint);
@@ -194,6 +197,10 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -211,8 +218,11 @@
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.MainPicture);
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "MainForm";
+            this.Tag = "1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -238,6 +248,7 @@
         private System.Windows.Forms.Button lineEnable;
         private System.Windows.Forms.Button stopImage;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

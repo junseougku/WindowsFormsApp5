@@ -51,10 +51,9 @@ namespace WindowsFormsApp5
             m_mouseY = 0;
             ImageInit();
             player = new Player();
+
             player.Init(imageList.Images[4]);
-
-
-
+           
         }
 
         private void ImageInit()
@@ -88,11 +87,11 @@ namespace WindowsFormsApp5
             LineEnable(e);
             if (m_click == true || m_clickDown == true)
             {
-               // TilePaint(e);
+                TilePaint(e);
                 m_clickDown = false;
             }
-            TilePaint(e);
-            player.Draw(e);
+            //TilePaint(e);
+       
 
             if (testButton == true)
             {
@@ -102,7 +101,8 @@ namespace WindowsFormsApp5
                     {
                         if (m_mapTile[i, j].no == true)
                         {
-                            e.Graphics.DrawImage(imageList.Images[5],i*80, j*80);
+                            player.setPosition(i*80,j*80);
+                            player.Draw(e);
                             return;
                         }
                     }
@@ -117,8 +117,8 @@ namespace WindowsFormsApp5
             {
                 for(int j = 0; j < 10; j++)
                 {
-                    if (m_mapTile[i,j].no == true)
-                        e.Graphics.DrawImage(imageList.Images[m_mapTile[i, j].number], i*80 , j*80 );
+                    if (m_mapTile[i, j].no == true)
+                        e.Graphics.DrawImage(imageList.Images[m_mapTile[i,j].number], i*80, j*80);
                 }
                
             }
@@ -355,6 +355,33 @@ namespace WindowsFormsApp5
             if (m_deleteClick == false)
                 m_deleteClick = true;
             else m_deleteClick = false;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void handleKeyDownEvent()
+        {
+
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Down)
+            {
+                player.update(MOVE.DOWN);
+            }
+        }
+        private int millisecondsElapsed;
+        private int frameIndex;
+       
+        private void updateFrame(int msec)
+        {
+            millisecondsElapsed += msec;
+            //var msecPerFrame = 1000 / framesPerSecond;
+            //index = (int)(millisecondsElapsed / msecPerFrame);
         }
     }
 }
