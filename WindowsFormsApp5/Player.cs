@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-enum MOVE{IDLE,  DOWN , UP, RIGHT, LEFT}
+enum MOVE { IDLE, DOWN, UP, RIGHT, LEFT }
 
 namespace WindowsFormsApp5
 {
@@ -22,7 +22,7 @@ namespace WindowsFormsApp5
         {
             m_image = _image;
             preimage = MOVE.IDLE;
-            x = 0.0f; 
+            x = 0.0f;
             y = 0.0f;
             m_move = MOVE.IDLE;
         }
@@ -30,11 +30,11 @@ namespace WindowsFormsApp5
         {
             m_image = _image;
         }
-        
-        public void Draw(PaintEventArgs e,int _num)
+
+        public void Draw(PaintEventArgs e, int _num)
         {
-            e.Graphics.DrawImage(m_image, x*80.0f, y*80.0f);
-        
+            e.Graphics.DrawImage(m_image, x * 80.0f, y * 80.0f);
+
         }
         public void setPosition(float _x, float _y)
         {
@@ -47,15 +47,15 @@ namespace WindowsFormsApp5
             {
                 destx = x;
                 desty = y;
-                
+
             }
-            else if(m_move == MOVE.DOWN)
+            else if (m_move == MOVE.DOWN)
             {
                 y += 0.05f;
                 if (desty + 1.0f > y)
                 {
                     m_move = MOVE.DOWN;
-                    
+
                 }
                 else
                 {
@@ -63,13 +63,13 @@ namespace WindowsFormsApp5
                     y = desty + 1.0f;
                 }
             }
-            else if(m_move == MOVE.LEFT)
+            else if (m_move == MOVE.LEFT)
             {
                 x -= 0.05f;
                 if (destx - 1.0f < x)
                 {
                     m_move = MOVE.LEFT;
-                    
+
                 }
                 else
                 {
@@ -77,7 +77,7 @@ namespace WindowsFormsApp5
                     x = destx - 1.0f;
                 }
             }
-            else if(m_move == MOVE.RIGHT)
+            else if (m_move == MOVE.RIGHT)
             {
                 x += 0.05f;
                 if (destx + 1.0f > x)
@@ -91,7 +91,7 @@ namespace WindowsFormsApp5
                     x = destx + 1.0f;
                 }
             }
-            else if(m_move == MOVE.UP)
+            else if (m_move == MOVE.UP)
             {
                 y -= 0.05f;
                 if (desty - 1.0f < y)
@@ -105,7 +105,7 @@ namespace WindowsFormsApp5
                     y = desty - 1.0f;
                 }
             }
-            
+
         }
     }
 }
