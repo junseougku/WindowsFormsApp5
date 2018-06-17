@@ -44,22 +44,58 @@ namespace WindowsFormsApp5
             else if(m_move == MOVE.DOWN)
             {
                 y += 0.05f;
-                if (desty +1.0f >= y)
+                if (desty + 1.0f > y)
+                {
                     m_move = MOVE.DOWN;
+                    
+                }
                 else
+                {
                     m_move = MOVE.IDLE;
+                    y = desty + 1.0f;
+                }
             }
             else if(m_move == MOVE.LEFT)
             {
-                x = x - 1.0f;
+                x -= 0.05f;
+                if (destx - 1.0f < x)
+                {
+                    m_move = MOVE.LEFT;
+
+                }
+                else
+                {
+                    m_move = MOVE.IDLE;
+                    x = destx - 1.0f;
+                }
             }
             else if(m_move == MOVE.RIGHT)
             {
-                x = x + 1.0f;
+                x += 0.05f;
+                if (destx + 1.0f > x)
+                {
+                    m_move = MOVE.RIGHT;
+
+                }
+                else
+                {
+                    m_move = MOVE.IDLE;
+                    x = destx + 1.0f;
+                }
             }
             else if(m_move == MOVE.UP)
             {
-                y = y - 1.0f;
+                y -= 0.05f;
+                if (desty - 1.0f < y)
+                {
+                    m_move = MOVE.UP;
+
+                }
+                else
+                {
+                    m_move = MOVE.IDLE;
+                    y = desty - 1.0f;
+                }
             }
             
         }

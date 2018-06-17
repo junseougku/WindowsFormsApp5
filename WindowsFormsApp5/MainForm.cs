@@ -356,7 +356,7 @@ namespace WindowsFormsApp5
         private void timer_Tick(object sender, EventArgs e)
         {
             if (testButton == false) return;
-        player.update();
+                player.update();
        
                 
 
@@ -387,25 +387,29 @@ namespace WindowsFormsApp5
 
         private void upButton_Click(object sender, EventArgs e)
         {
+            if (player.m_move != MOVE.IDLE) return;
             player.m_move = MOVE.UP;
             MainPicture.Invalidate();
         }
 
         private void downButton_Click(object sender, EventArgs e)
         {
+            if (player.m_move != MOVE.IDLE) return;
             player.m_move = MOVE.DOWN;
             MainPicture.Invalidate();
         }
 
         private void leftButton_Click(object sender, EventArgs e)
         {
-            player.update();
+            if (player.m_move != MOVE.IDLE) return;
+            player.m_move = MOVE.LEFT;
             MainPicture.Invalidate();
         }
 
         private void rightButton_Click(object sender, EventArgs e)
         {
-            player.update();
+            if (player.m_move != MOVE.IDLE) return;
+            player.m_move = MOVE.RIGHT;
             MainPicture.Invalidate();
         }
 
