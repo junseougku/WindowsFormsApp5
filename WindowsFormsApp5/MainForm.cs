@@ -93,7 +93,7 @@ namespace WindowsFormsApp5
                         if (m_mapTile[i, j].no == true)
                         {
                             
-                            player.setPosition(player.x*80,player.y*80);
+                            player.setPosition(player.x,player.y);
                             player.Draw(e);
                             return;
                         }
@@ -380,22 +380,36 @@ namespace WindowsFormsApp5
 
         private void upButton_Click(object sender, EventArgs e)
         {
-
+            player.update(MOVE.UP);
+            MainPicture.Invalidate();
         }
 
         private void downButton_Click(object sender, EventArgs e)
         {
-
+            player.update(MOVE.DOWN);
+            MainPicture.Invalidate();
         }
 
         private void leftButton_Click(object sender, EventArgs e)
         {
-
+            player.update(MOVE.LEFT);
+            MainPicture.Invalidate();
         }
 
         private void rightButton_Click(object sender, EventArgs e)
         {
+            player.update(MOVE.RIGHT);
+            MainPicture.Invalidate();
+        }
 
+        private void TestButton_Enter(object sender, EventArgs e)
+        {
+            upButton.Focus();
+        }
+
+        private void saveButton_Enter(object sender, EventArgs e)
+        {
+            upButton.Focus();
         }
     }
 }

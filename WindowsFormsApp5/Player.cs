@@ -23,7 +23,7 @@ namespace WindowsFormsApp5
 
         public void Draw(PaintEventArgs e)
         {
-            e.Graphics.DrawImage(m_image, x, y);
+            e.Graphics.DrawImage(m_image, x*80, y*80);
         }
         public void setPosition(int _x, int _y)
         {
@@ -35,6 +35,18 @@ namespace WindowsFormsApp5
             if(_move == MOVE.DOWN)
             {
                 y = y +1;
+            }
+            else if(_move == MOVE.LEFT)
+            {
+                x = x - 1;
+            }
+            else if(_move == MOVE.RIGHT)
+            {
+                x = x + 1;
+            }
+            else if(_move == MOVE.UP)
+            {
+                y = y - 1;
             }
             
         }

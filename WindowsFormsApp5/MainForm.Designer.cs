@@ -64,6 +64,7 @@
             this.saveButton.Text = "저장";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Enter += new System.EventHandler(this.saveButton_Enter);
             // 
             // loadButton
             // 
@@ -94,11 +95,12 @@
             this.TestButton.Location = new System.Drawing.Point(1324, 116);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(75, 23);
-            this.TestButton.TabIndex = 8;
+            this.TestButton.TabIndex = 0;
             this.TestButton.TabStop = false;
             this.TestButton.Text = "TEST";
             this.TestButton.UseVisualStyleBackColor = true;
             this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            this.TestButton.Enter += new System.EventHandler(this.TestButton_Enter);
             // 
             // pictureBox4
             // 
@@ -264,6 +266,7 @@
             this.Name = "MainForm";
             this.Tag = "1";
             this.Text = "Form1";
+            this.Enter += new System.EventHandler(this.TestButton_Enter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
