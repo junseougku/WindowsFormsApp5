@@ -14,20 +14,26 @@ namespace WindowsFormsApp5
     {
         public MOVE m_move;
         Image m_image;
+        Image preimage;
         public float x, y;
         public float destx;
         public float desty;
         public void Init(Image _image)
         {
             m_image = _image;
-            x = 0.0f; ;
+            preimage = _image;
+            x = 0.0f; 
             y = 0.0f;
             m_move = MOVE.IDLE;
         }
-
-        public void Draw(PaintEventArgs e)
+        public void setImage(Image _image)
+        {
+            m_image = _image;
+        }
+        public void Draw(PaintEventArgs e,int _num)
         {
             e.Graphics.DrawImage(m_image, x*80.0f, y*80.0f);
+        
         }
         public void setPosition(float _x, float _y)
         {
@@ -40,6 +46,7 @@ namespace WindowsFormsApp5
             {
                 destx = x;
                 desty = y;
+                
             }
             else if(m_move == MOVE.DOWN)
             {

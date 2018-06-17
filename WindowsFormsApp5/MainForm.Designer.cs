@@ -47,6 +47,7 @@
             this.leftButton = new System.Windows.Forms.Button();
             this.downButton = new System.Windows.Forms.Button();
             this.rightButton = new System.Windows.Forms.Button();
+            this.deleteAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -89,6 +90,12 @@
             this.imageList.Images.SetKeyName(5, "idle_01.png");
             this.imageList.Images.SetKeyName(6, "walk_down_01.png");
             this.imageList.Images.SetKeyName(7, "walk_down_02.png");
+            this.imageList.Images.SetKeyName(8, "idle_up_01.png");
+            this.imageList.Images.SetKeyName(9, "walk_up_01.png");
+            this.imageList.Images.SetKeyName(10, "walk_up_02.png");
+            this.imageList.Images.SetKeyName(11, "idle_left_01.png");
+            this.imageList.Images.SetKeyName(12, "walk_left_01.png");
+            this.imageList.Images.SetKeyName(13, "walk_left_02.png");
             // 
             // TestButton
             // 
@@ -244,11 +251,23 @@
             this.rightButton.UseVisualStyleBackColor = true;
             this.rightButton.Click += new System.EventHandler(this.rightButton_Click);
             // 
+            // deleteAll
+            // 
+            this.deleteAll.Location = new System.Drawing.Point(1405, 116);
+            this.deleteAll.Name = "deleteAll";
+            this.deleteAll.Size = new System.Drawing.Size(75, 23);
+            this.deleteAll.TabIndex = 27;
+            this.deleteAll.TabStop = false;
+            this.deleteAll.Text = "전부삭제";
+            this.deleteAll.UseVisualStyleBackColor = true;
+            this.deleteAll.Click += new System.EventHandler(this.deleteAll_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 836);
+            this.Controls.Add(this.deleteAll);
             this.Controls.Add(this.rightButton);
             this.Controls.Add(this.downButton);
             this.Controls.Add(this.leftButton);
@@ -299,6 +318,7 @@
         private System.Windows.Forms.Button leftButton;
         private System.Windows.Forms.Button downButton;
         private System.Windows.Forms.Button rightButton;
+        private System.Windows.Forms.Button deleteAll;
     }
 }
 

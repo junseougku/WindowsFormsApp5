@@ -55,7 +55,8 @@ namespace WindowsFormsApp5
             player = new Player();
 
             player.Init(imageList.Images[5]);
-          // saveButton.fo
+            // saveButton.fo
+            previousTime = DateTime.Now;
         }
 
         private void ImageInit()
@@ -94,7 +95,7 @@ namespace WindowsFormsApp5
                         {
                             
                             player.setPosition(player.x,player.y);
-                            player.Draw(e);
+                            player.Draw(e,5);
                             return;
                         }
                     }
@@ -353,12 +354,40 @@ namespace WindowsFormsApp5
         }
         DateTime previousTime;
         bool active = false;
+        DateTime now;
+        int m_call = 0;
         private void timer_Tick(object sender, EventArgs e)
         {
+            
+            var elapsed = now - previousTime;
+            previousTime = now;
+            var msec = (int)elapsed.TotalMilliseconds;
+
+
             if (testButton == false) return;
                 player.update();
-       
-                
+            if(player.m_move == MOVE.IDLE)
+            {
+                player.setImage(imageList.Images[5]);
+                m_call = 0;
+            }
+            else if(player.m_move == MOVE.DOWN)
+            {
+                m_call++;
+                if(m_call < 12)
+                    player.setImage(imageList.Images[6]);
+                else 
+                 player.setImage(imageList.Images[7]);
+            }
+            else if (player.m_move == MOVE.UP)
+            {
+                m_call++;
+                if (m_call < 12)
+                    player.setImage(imageList.Images[6]);
+                else
+                    player.setImage(imageList.Images[7]);
+            }
+
 
             MainPicture.Invalidate();
         }
@@ -421,6 +450,21 @@ namespace WindowsFormsApp5
         private void saveButton_Enter(object sender, EventArgs e)
         {
             upButton.Focus();
+        }
+
+        private void deleteAll_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < 16; i++)
+            {
+                for(int j = 0; j < 10; j++)
+                {
+                    m_mapTile[i, j].no = false;
+                    m_mapTile[i, j].x = 0;
+                    m_mapTile[i, j].y = 0;
+                    m_mapTile[i, j].number = 0;
+                }
+            }
+            MainPicture.Invalidate();
         }
     }
 }
