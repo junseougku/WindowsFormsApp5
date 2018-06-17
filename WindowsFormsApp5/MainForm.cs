@@ -127,6 +127,7 @@ namespace WindowsFormsApp5
         {
             m_cursorPicture = CreateGraphics();
 
+
             m_click = true;
 
             m_number = _num;
@@ -350,10 +351,16 @@ namespace WindowsFormsApp5
                 m_deleteClick = true;
             else m_deleteClick = false;
         }
-
+        DateTime previousTime;
+        bool active = false;
         private void timer_Tick(object sender, EventArgs e)
         {
+            if (testButton == false) return;
+        player.update();
+       
+                
 
+            MainPicture.Invalidate();
         }
 
         private void handleKeyDownEvent()
@@ -365,7 +372,7 @@ namespace WindowsFormsApp5
         {
             if(e.KeyCode == Keys.Down)
             {
-                player.update(MOVE.DOWN);
+             //   player.update(MOVE.DOWN);
             }
         }
         private int millisecondsElapsed;
@@ -380,25 +387,25 @@ namespace WindowsFormsApp5
 
         private void upButton_Click(object sender, EventArgs e)
         {
-            player.update(MOVE.UP);
+            player.m_move = MOVE.UP;
             MainPicture.Invalidate();
         }
 
         private void downButton_Click(object sender, EventArgs e)
         {
-            player.update(MOVE.DOWN);
+            player.m_move = MOVE.DOWN;
             MainPicture.Invalidate();
         }
 
         private void leftButton_Click(object sender, EventArgs e)
         {
-            player.update(MOVE.LEFT);
+            player.update();
             MainPicture.Invalidate();
         }
 
         private void rightButton_Click(object sender, EventArgs e)
         {
-            player.update(MOVE.RIGHT);
+            player.update();
             MainPicture.Invalidate();
         }
 

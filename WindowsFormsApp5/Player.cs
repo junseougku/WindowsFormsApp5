@@ -6,47 +6,60 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-enum MOVE{  DOWN , UP, RIGHT, LEFT}
+enum MOVE{IDLE,  DOWN , UP, RIGHT, LEFT}
 
 namespace WindowsFormsApp5
 {
     class Player
     {
+        public MOVE m_move;
         Image m_image;
-        public int x, y;
+        public float x, y;
+        public float destx;
+        public float desty;
         public void Init(Image _image)
         {
             m_image = _image;
-            x = 0; ;
-            y = 0;
+            x = 0.0f; ;
+            y = 0.0f;
+            m_move = MOVE.IDLE;
         }
 
         public void Draw(PaintEventArgs e)
         {
-            e.Graphics.DrawImage(m_image, x*80, y*80);
+            e.Graphics.DrawImage(m_image, x*80.0f, y*80.0f);
         }
-        public void setPosition(int _x, int _y)
+        public void setPosition(float _x, float _y)
         {
             x = _x;
             y = _y;
         }
-        public void update(MOVE _move)
+        public void update()
         {
-            if(_move == MOVE.DOWN)
+            if (m_move == MOVE.IDLE)
             {
-                y = y +1;
+                destx = x;
+                desty = y;
             }
-            else if(_move == MOVE.LEFT)
+            else if(m_move == MOVE.DOWN)
             {
-                x = x - 1;
+                y += 0.05f;
+                if (desty +1.0f >= y)
+                    m_move = MOVE.DOWN;
+                else
+                    m_move = MOVE.IDLE;
             }
-            else if(_move == MOVE.RIGHT)
+            else if(m_move == MOVE.LEFT)
             {
-                x = x + 1;
+                x = x - 1.0f;
             }
-            else if(_move == MOVE.UP)
+            else if(m_move == MOVE.RIGHT)
             {
-                y = y - 1;
+                x = x + 1.0f;
+            }
+            else if(m_move == MOVE.UP)
+            {
+                y = y - 1.0f;
             }
             
         }
