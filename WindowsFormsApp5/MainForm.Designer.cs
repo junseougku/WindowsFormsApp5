@@ -96,6 +96,9 @@
             this.imageList.Images.SetKeyName(11, "idle_left_01.png");
             this.imageList.Images.SetKeyName(12, "walk_left_01.png");
             this.imageList.Images.SetKeyName(13, "walk_left_02.png");
+            this.imageList.Images.SetKeyName(14, "idle_right_01.png");
+            this.imageList.Images.SetKeyName(15, "walk_right_01.png");
+            this.imageList.Images.SetKeyName(16, "walk_right_02.png");
             // 
             // TestButton
             // 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static System.IO.FileStream;
+using System.Drawing.Drawing2D;
 
 public struct mapTile
 {
@@ -353,26 +354,37 @@ namespace WindowsFormsApp5
             else m_deleteClick = false;
         }
         DateTime previousTime;
-        bool active = false;
-        DateTime now;
+
         int m_call = 0;
+
         private void timer_Tick(object sender, EventArgs e)
         {
             
-            var elapsed = now - previousTime;
-            previousTime = now;
-            var msec = (int)elapsed.TotalMilliseconds;
+
 
 
             if (testButton == false) return;
                 player.update();
             if(player.m_move == MOVE.IDLE)
             {
-                player.setImage(imageList.Images[5]);
+                if (player.preimage == MOVE.DOWN)
+                    player.setImage(imageList.Images[5]);
+                else if (player.preimage == MOVE.UP)
+                    player.setImage(imageList.Images[8]);
+                else if (player.preimage == MOVE.LEFT)
+                    player.setImage(imageList.Images[11]);
+                else if (player.preimage == MOVE.RIGHT)
+                {
+
+                    player.setImage(imageList.Images[14]);
+
+                }
+                
                 m_call = 0;
             }
             else if(player.m_move == MOVE.DOWN)
             {
+                player.preimage = MOVE.DOWN;
                 m_call++;
                 if(m_call < 12)
                     player.setImage(imageList.Images[6]);
@@ -381,11 +393,37 @@ namespace WindowsFormsApp5
             }
             else if (player.m_move == MOVE.UP)
             {
+                player.preimage = MOVE.UP;
                 m_call++;
                 if (m_call < 12)
-                    player.setImage(imageList.Images[6]);
+                    player.setImage(imageList.Images[9]);
                 else
-                    player.setImage(imageList.Images[7]);
+                    player.setImage(imageList.Images[10]);
+            }
+            else if (player.m_move == MOVE.LEFT)
+            {
+                player.preimage = MOVE.LEFT;
+                m_call++;
+                if (m_call < 12)
+                    player.setImage(imageList.Images[12]);
+                else
+                    player.setImage(imageList.Images[13]);
+            }
+            else if (player.m_move == MOVE.RIGHT)
+            {
+                player.preimage = MOVE.RIGHT;
+                m_call++;
+                if (m_call < 12)
+                {
+                    player.setImage(imageList.Images[15]);
+
+                }
+                else
+                {
+
+                    player.setImage(imageList.Images[16]);
+
+                }
             }
 
 

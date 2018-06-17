@@ -14,14 +14,14 @@ namespace WindowsFormsApp5
     {
         public MOVE m_move;
         Image m_image;
-        Image preimage;
+        public MOVE preimage;
         public float x, y;
         public float destx;
         public float desty;
         public void Init(Image _image)
         {
             m_image = _image;
-            preimage = _image;
+            preimage = MOVE.IDLE;
             x = 0.0f; 
             y = 0.0f;
             m_move = MOVE.IDLE;
@@ -30,6 +30,7 @@ namespace WindowsFormsApp5
         {
             m_image = _image;
         }
+        
         public void Draw(PaintEventArgs e,int _num)
         {
             e.Graphics.DrawImage(m_image, x*80.0f, y*80.0f);
@@ -68,7 +69,7 @@ namespace WindowsFormsApp5
                 if (destx - 1.0f < x)
                 {
                     m_move = MOVE.LEFT;
-
+                    
                 }
                 else
                 {
