@@ -298,16 +298,23 @@ namespace WindowsFormsApp5
         {
             try
             {
-                StreamReader sw = new StreamReader("textt.txt");
-                foreach (mapTile b in m_mapTile)
+                StreamReader sr = new StreamReader("textt.txt");
+                while (!sr.EndOfStream)
                 {
-                    string str = "";
-                    str += b.x + ",";
-                    str += b.y + ",";
-                    str += b.number + ",";
-                    sw.WriteLine(str);
+                    string line = sr.ReadLine();
+                    string[] numbers = line.Split(',');
+                    
+                    int tx = int.Parse(numbers[0]);
+                    int ty = int.Parse(numbers[1]);
+                    int tt = int.Parse(numbers[2]);
+
+                    m_mapTile[tx, ty].x = tx;
+                    m_mapTile[tx, ty].y = ty;
+                    m_mapTile[tx, ty].no = true;
+                    m_mapTile[tx, ty].number = tt;
                 }
-                sw.Close();
+                MainPicture.Invalidate();
+                sr.Close();
             }
             catch (Exception ex)
             {
