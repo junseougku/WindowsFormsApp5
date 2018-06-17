@@ -42,6 +42,7 @@
             this.MainPicture = new System.Windows.Forms.PictureBox();
             this.lineEnable = new System.Windows.Forms.Button();
             this.stopImage = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -183,11 +184,22 @@
             this.stopImage.UseVisualStyleBackColor = true;
             this.stopImage.Click += new System.EventHandler(this.stopImage_Click);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(1324, 763);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 11;
+            this.deleteButton.Text = "타일삭제";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 836);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.stopImage);
             this.Controls.Add(this.lineEnable);
             this.Controls.Add(this.TestButton);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button lineEnable;
         private System.Windows.Forms.Button stopImage;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 

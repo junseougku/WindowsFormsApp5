@@ -88,10 +88,10 @@ namespace WindowsFormsApp5
             LineEnable(e);
             if (m_click == true || m_clickDown == true)
             {
-                TilePaint(e);
+               // TilePaint(e);
                 m_clickDown = false;
             }
-
+            TilePaint(e);
             player.Draw(e);
 
             if (testButton == true)
@@ -109,7 +109,6 @@ namespace WindowsFormsApp5
                 }
             }
         }
-
         private void TilePaint(PaintEventArgs e )
         {
             e.Graphics.DrawImage(imageList.Images[m_number], m_mouseX - 40, m_mouseY - 40);
@@ -123,6 +122,7 @@ namespace WindowsFormsApp5
                 }
                
             }
+            //Invalidate();
         }
 
         private void MainPicture_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -137,6 +137,9 @@ namespace WindowsFormsApp5
             m_click = true;
 
             m_number = _num;
+
+            m_deleteClick = false;
+            
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -148,7 +151,7 @@ namespace WindowsFormsApp5
         {
             CommonButton(1);
         }
-
+        
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
 
@@ -163,7 +166,8 @@ namespace WindowsFormsApp5
                 MainPicture.Invalidate();
             }
            
-            
+
+
         }
 
         private void MainPicture_Click(object sender, EventArgs e)
@@ -193,11 +197,21 @@ namespace WindowsFormsApp5
                 m_mouseX++;
                 m_mouseY++;
        
-                m_mouseX = 80 * m_mouseX - 40;
+                m_mouseX = 80 * m_mouseX - 40;//?왜있는거지
                 m_mouseY = 80 * m_mouseY - 40;
                 
                 MainPicture.Invalidate();
                 //m_number = 0;
+            }
+            if(m_deleteClick == true)
+            {
+                m_mouseX = e.X / 80;
+                m_mouseY = e.Y / 80;
+                m_mapTile[m_mouseX, m_mouseY].no = false;
+                m_mapTile[m_mouseX, m_mouseY].x = 0;
+                m_mapTile[m_mouseX, m_mouseY].y = 0;
+                m_mapTile[m_mouseX, m_mouseY].number = 0;
+                MainPicture.Invalidate();
             }
         }
 
@@ -212,6 +226,10 @@ namespace WindowsFormsApp5
                     str += b.x + ",";
                     str += b.y + ",";
                     str += b.number + ",";
+                    if (b.no == false)
+                        str += 0 + ",";
+                    else
+                        str += 1 + ",";
                     sw.WriteLine(str);
                 }
                 sw.Close();
@@ -307,11 +325,13 @@ namespace WindowsFormsApp5
                     int tx = int.Parse(numbers[0]);
                     int ty = int.Parse(numbers[1]);
                     int tt = int.Parse(numbers[2]);
-
+                    int tb = int.Parse(numbers[3]);
                     m_mapTile[tx, ty].x = tx;
                     m_mapTile[tx, ty].y = ty;
-                    m_mapTile[tx, ty].no = true;
                     m_mapTile[tx, ty].number = tt;
+                    if (tb == 0)
+                    m_mapTile[tx, ty].no = false;
+                    else m_mapTile[tx, ty].no = true;
                 }
                 MainPicture.Invalidate();
                 sr.Close();
@@ -321,6 +341,20 @@ namespace WindowsFormsApp5
                 MessageBox.Show("읽어올 수 없습니다");
             }
 
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            m_click = false;
+            DeleteMode();
+
+        }
+        bool m_deleteClick = false;
+        private void DeleteMode()
+        {
+            if (m_deleteClick == false)
+                m_deleteClick = true;
+            else m_deleteClick = false;
         }
     }
 }
