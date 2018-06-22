@@ -396,11 +396,9 @@ namespace WindowsFormsApp5
                 else if (player.preimage == MOVE.LEFT)
                     player.setImage(imageList.Images[11]);
                 else if (player.preimage == MOVE.RIGHT)
-                {
+                     player.setImage(imageList.Images[14]);
 
-                    player.setImage(imageList.Images[14]);
-
-                }
+                
 
                 m_call = 0;
                 m_moveEnable = true;
@@ -425,6 +423,7 @@ namespace WindowsFormsApp5
                     {
                         player.m_move = MOVE.IDLE;
                         player.y = player.y - 0.05f;
+                        player.y = (float)Math.Round(player.y);
                     }
                 }
 
@@ -449,6 +448,7 @@ namespace WindowsFormsApp5
                     {
                         player.m_move = MOVE.IDLE;
                         player.y = player.y + 0.05f;
+                        player.y = (float)Math.Round(player.y);
                     }
                 }
             }
@@ -472,6 +472,7 @@ namespace WindowsFormsApp5
                     {
                         player.m_move = MOVE.IDLE;
                         player.x = player.x + 0.05f;
+                        player.x = (float)Math.Round(player.x);
                     }
                 }
             }
@@ -499,6 +500,7 @@ namespace WindowsFormsApp5
                     {
                         player.m_move = MOVE.IDLE;
                         player.x = player.x - 0.05f;
+                        player.x = (float)Math.Round(player.x);
                     }
                 }
             }
