@@ -582,6 +582,7 @@ namespace WindowsFormsApp5
                 }
             }
             MainPicture.Invalidate();
+            testButton = false;
         }
     }
 }
