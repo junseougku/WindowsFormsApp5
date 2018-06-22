@@ -213,9 +213,16 @@ namespace WindowsFormsApp5
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.DefaultExt = ".txt";
+            var ret = dlg.ShowDialog();
+            if (ret != DialogResult.OK)
+            {
+                return;
+            }
             try
             {
-                StreamWriter sw = new StreamWriter("textt.txt");
+                StreamWriter sw = new StreamWriter(dlg.FileName);
                 foreach (mapTile b in m_mapTile)
                 {
                     string str = "";
@@ -311,9 +318,16 @@ namespace WindowsFormsApp5
 
         private void loadButton_Click(object sender, EventArgs e)
         {
+            OpenFileDialog dlg = new OpenFileDialog();
+            var ret = dlg.ShowDialog();
+            if (ret != DialogResult.OK)
+            {
+                return;
+            }
+     
             try
             {
-                StreamReader sr = new StreamReader("textt.txt");
+                StreamReader sr = new StreamReader(dlg.FileName);
                 while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
